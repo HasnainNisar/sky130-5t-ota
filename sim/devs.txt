@@ -1,0 +1,10 @@
+XM3 n1 n1 VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=9.5 nf=1 ad=2.755 as=2.755 pd=19.58 ps=19.58 nrd=0.0305263157894737
++ nrs=0.0305263157894737 sa=0 sb=0 sd=0 mult=1
+XM4 out n1 VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=9.5 nf=1 ad=2.755 as=2.755 pd=19.58 ps=19.58 nrd=0.0305263157894737
++ nrs=0.0305263157894737 sa=0 sb=0 sd=0 mult=1
+XM1 n1 inp tail GND sky130_fd_pr__nfet_01v8 L=2 W=3.3 nf=1 ad=0.957 as=0.957 pd=7.18 ps=7.18 nrd=0.0878787878787879
++ nrs=0.0878787878787879 sa=0 sb=0 sd=0 mult=1
+XM2 out inn tail GND sky130_fd_pr__nfet_01v8 L=2 W=3.3 nf=1 ad=0.957 as=0.957 pd=7.18 ps=7.18 nrd=0.0878787878787879
++ nrs=0.0878787878787879 sa=0 sb=0 sd=0 mult=1
+XM5 tail vbias GND GND sky130_fd_pr__nfet_01v8 L=1 W=23 nf=1 ad=6.67 as=6.67 pd=46.58 ps=46.58 nrd=0.0126086956521739
++ nrs=0.0126086956521739 sa=0 sb=0 sd=0 mult=1
