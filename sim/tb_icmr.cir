@@ -1,0 +1,24 @@
+* 5T OTA testbench, SKY130 tt, 1.8 V
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.include /foss/designs/devs.txt
+Vdd VDD 0 1.8
+Vb vddb 0 1.8
+Vcm cm 0 0.9
+Vinp inp cm dc 0 ac 0.5
+Vinn inn cm dc 0 ac -0.5
+Ib vddb vbias 15u
+XM6 vbias vbias 0 0 sky130_fd_pr__nfet_01v8 L=1 W=23 nf=1 ad=6.67 as=6.67 pd=46.58 ps=46.58 nrd=0.0126086956521739 nrs=0.0126086956521739 sa=0 sb=0 sd=0 mult=1
+CL out 0 1p
+.control
+dc Vcm 0 1.8 0.01
+meas dc i080 find i(Vdd) at=0.80
+meas dc i085 find i(Vdd) at=0.85
+meas dc i090 find i(Vdd) at=0.90
+meas dc i095 find i(Vdd) at=0.95
+meas dc i100 find i(Vdd) at=1.00
+meas dc i120 find i(Vdd) at=1.20
+meas dc i150 find i(Vdd) at=1.50
+meas dc i170 find i(Vdd) at=1.70
+meas dc i180 find i(Vdd) at=1.80
+.endc
+.end
