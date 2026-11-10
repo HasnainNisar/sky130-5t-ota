@@ -1,0 +1,29 @@
+* 5T OTA testbench, SKY130 tt, 1.8 V
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.include /foss/designs/devs.txt
+Vdd VDD 0 1.8
+Vb vddb 0 1.8
+Vcm cm 0 0.9
+Vinp inp cm dc 0 ac 0.5
+Vinn inn cm dc 0 ac -0.5
+Ib vddb vbias 15u
+XM6 vbias vbias 0 0 sky130_fd_pr__nfet_01v8 L=1 W=23 nf=1 ad=6.67 as=6.67 pd=46.58 ps=46.58 nrd=0.0126086956521739 nrs=0.0126086956521739 sa=0 sb=0 sd=0 mult=1
+CL out 0 1p
+.control
+set units=degrees
+op
+print v(out) v(n1) v(tail) v(vbias)
+print -i(Vdd)
+ac dec 20 1 1G
+meas ac dcgain find vdb(out) at=1
+meas ac ugf when vdb(out)=0 fall=1
+meas ac ph_ugf find vp(out) when vdb(out)=0 fall=1
+let pm = 180 + ph_ugf
+print pm
+plot vdb(out)
+plot vp(out)
+dc Vcm 0 1.8 0.01
+plot -i(Vdd)*1e6
+plot v(tail) v(out)
+.endc
+.end
